@@ -22,6 +22,11 @@
 示例 4：
 输入：s1 = "abcd", s2 = "dcba"
 输出：false
+
+提示：
+1 <= s1.length, s2.length <= 100
+s1.length == s2.length
+s1 和 s2 仅由小写英文字母组成
 */
 
 /**
