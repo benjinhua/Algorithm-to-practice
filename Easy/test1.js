@@ -24,31 +24,37 @@
 输出：false
 
 提示：
-1 <= s1.length, s2.length <= 100
-s1.length == s2.length
-s1 和 s2 仅由小写英文字母组成
+  1 <= s1.length, s2.length <= 100
+  s1.length == s2.length
+  s1 和 s2 仅由小写英文字母组成
 */
 
 /**
  * @param {string} s1
  * @param {string} s2
  * @return {boolean}
+ *
+ * 执行用时：52 ms, 在所有 JavaScript 提交中击败了96.35%的用户
+ * 内存消耗：41.4 MB, 在所有 JavaScript 提交中击败了24.66%的用户
  */
 var areAlmostEqual = function (s1, s2) {
+  if (!s1 || !s2) return false;
   if (s1.length !== s2.length) return false;
-  const s3 = s1 + s2;
-  const arr = s3.split("").sort();
+  if (s1 === s2) return true;
+  const arr1 = s1.split(""),
+    arr2 = s2.split("");
   let count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (i % 2 === 0) {
-      if (arr[i] !== arr[i + 1]) {
-        break;
-      }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      count += 1;
+      if (count > 2) break;
     }
-    count++;
   }
-  if (count === arr.length) return true;
-  else return false;
+  if (count > 2) return false;
+  if (arr1.sort().join() !== arr2.sort().join()) return false;
+  else return true;
 };
 
-console.log(areAlmostEqual("112a23", "3221a1"));
+console.log(areAlmostEqual("abc", "cab"));
+console.log(areAlmostEqual("lxt", "ltx"));
+console.log(areAlmostEqual("caa", "aaz"));
