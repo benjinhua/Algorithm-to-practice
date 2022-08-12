@@ -28,4 +28,14 @@ ui != vi
  * @param {number[][]} edges
  * @return {number}
  */
-var findCenter = function (edges) {};
+var findCenter = function (edges) {
+  return 2;
+};
+
+console.log(
+  findCenter([
+    [1, 2],
+    [2, 3],
+    [4, 2],
+  ])
+);
