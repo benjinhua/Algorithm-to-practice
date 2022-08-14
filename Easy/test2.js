@@ -31,6 +31,7 @@ ui != vi
 var findCenter = function (edges) {
   const a = [],
     b = [];
+  const s1 = [];
   return 2;
 };
 
