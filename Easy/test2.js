@@ -22,6 +22,10 @@ edges[i].length == 2
 1 <= ui, vi <= n
 ui != vi
 题目数据给出的 edges 表示一个有效的星型图
+
+
+执行用时：96 ms, 在所有 JavaScript 提交中击败了64.42%的用户
+内存消耗：55.9 MB, 在所有 JavaScript 提交中击败了79.81%的用户
 */
 
 /**
@@ -29,16 +33,22 @@ ui != vi
  * @return {number}
  */
 var findCenter = function (edges) {
-  const a = [],
-    b = [];
-  const s1 = [];
-  return 2;
+  const a = edges[0][0],b=edges[0][1];
+  let c;
+  for(let i = 0; i < edges.length;i++) {
+    if(i > 0) {
+      if(edges[i].includes(a) && !edges[i].includes(b)) {
+        c = a;
+        break
+      }else {
+        c = b;
+        break;
+      }
+    }
+  }
+  return c;
 };
 
 console.log(
-  findCenter([
-    [1, 2],
-    [2, 3],
-    [4, 2],
-  ])
+  findCenter([[1,2],[5,1],[1,3],[1,4]])
 );
