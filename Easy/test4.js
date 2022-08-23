@@ -31,7 +31,9 @@ s 中每个单词都被 单个空格 分隔
  * @return {boolean}
  */
  var wordPattern = function(pattern, s) {
-
+    const str = pattern.trim();
+    const arr = s.split(' ');
+    str.split('').filter(item=>{})
 };
 
 
